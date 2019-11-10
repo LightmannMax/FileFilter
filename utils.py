@@ -518,7 +518,7 @@ def merge(infos, output_root, seconds=1, microseconds=0, minutes=0, hours=0, day
     if info['day'] == 'D1' or info['day'] == 'D2' or info['day'] == 'D3':
         df = pd.DataFrame(columns=['Time', 'temp_T', 'HR_H', 'temp_H', 'move_H' , 'X_Axis_A', 'Y_Axis_A', 'Z_Axis_A', 'lux_A (Lux = 10(counts/341))', 'temp_A (T = (counts – 171) / 3.142)', 'pm25_E_O', 'pm10_E_O', 'pm1_E_O', 't_E_O', 'h_E_O', 'co2_E_O', 'co_E_O', 'hcho_E_O', 'tvoc_E_O', 'pm25_E_I', 'pm10_E_I', 'pm1_E_I', 't_E_I', 'h_E_I', 'co2_E_I', 'co_E_I', 'hcho_E_I', 'tvoc_E_I', 'CO2_Air', 'PM1_Air', 'PM2.5_Air', 'PM10_Air', 'PM0.3_Air', 'PM0.5_Air', 'PM1.0_Air', 'PM2.5_Air', 'PM5.0_Air', 'PM10_Air'])
     # D4-D6 使用的欄位名稱
-    elif info['day'] == 'D4' or info['day'] == 'D5' or info['day'] == 'D6':
+    elif info['day'] == 'D4' or info['day'] == 'D5' or info['day'] == 'D6' or info['day'] == 'D7':
         df = pd.DataFrame(columns=['Time', 'temp_T', 'HR_H', 'temp_H', 'move_H' , 'X_Axis_A', 'Y_Axis_A', 'Z_Axis_A', 'lux_A (Lux = 10(counts/341))', 'temp_A (T = (counts ??171) / 3.142)', 'pm25_E', 'pm10_E', 'pm1_E', 't_E', 'h_E', 'co2_E', 'co_E', 'hcho_E', 'tvoc_E'])
     else:
         return
@@ -536,7 +536,7 @@ def merge(infos, output_root, seconds=1, microseconds=0, minutes=0, hours=0, day
             row += select_mean(data, 'E_O', time, 0, range(0, 9), step) # E_O
             row += select_mean(data, 'E_I', time, 0, range(0, 9), step) # E_I
             row += select_mean(data, 'Air', time, 0, range(0, 10), step) # Air
-        elif info['day'] == 'D4' or info['day'] == 'D5' or info['day'] == 'D6':
+        elif info['day'] == 'D4' or info['day'] == 'D5' or info['day'] == 'D6' or info['day'] == 'D7':
             row += select_mean(data, 'E', time, 0, range(0, 9), step) # E
         
         # 檢查是否全部欄位都空白
