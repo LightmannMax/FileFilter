@@ -556,7 +556,7 @@ def merge(infos, output_root, seconds=1, microseconds=0, minutes=0, hours=0, day
         time += step
 
         df['temp_H'] /= 100.0
-        df['temp_A'] = (df['temp_A']-171)/3.142
+        df['temp_A (T = (counts – 171) / 3.142)'] = (df['temp_A (T = (counts – 171) / 3.142)']-171)/3.142
        
 
     # 輸出合併後檔案，附上標題列
