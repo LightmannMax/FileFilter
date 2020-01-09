@@ -557,7 +557,7 @@ def merge(infos, output_root, seconds=1, microseconds=0, minutes=0, hours=0, day
 
     df['tmep_H'] /= 100.0
     
-    df(['temp_A'] - 171.0)/= 3.142
+    df['temp_A'] -= 171.0
     
     # 輸出合併後檔案，附上標題列
     df.to_csv(output_path, index=False, doublequote=False)
