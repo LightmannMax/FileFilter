@@ -533,11 +533,11 @@ def merge(infos, output_root, seconds=1, microseconds=0, minutes=0, hours=0, day
         row += select_mean(data, 'H', time, 0, range(0, 3), step) # H
         row += select_mean(data, 'A_TL', time, 0, range(0, 5), step) # H
         if info['day'] == 'D1' or info['day'] == 'D2' or info['day'] == 'D3':
+            row += select_mean(data, 'E', time, 0, range(0, 9), step) # E
+        elif info['day'] == 'D4' or info['day'] == 'D5' or info['day'] == 'D6' or info['day'] == 'D7':
             row += select_mean(data, 'E_O', time, 0, range(0, 9), step) # E_O
             row += select_mean(data, 'E_I', time, 0, range(0, 9), step) # E_I
             row += select_mean(data, 'Air', time, 0, range(0, 10), step) # Air
-        elif info['day'] == 'D4' or info['day'] == 'D5' or info['day'] == 'D6' or info['day'] == 'D7':
-            row += select_mean(data, 'E', time, 0, range(0, 9), step) # E
         
         # 檢查是否全部欄位都空白
         not_blank = False
